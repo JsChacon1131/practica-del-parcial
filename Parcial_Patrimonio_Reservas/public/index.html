@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión de espacios culturales</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <h1>Espacios culturales y reservas</h1>
+    <section><h2>Registrar espacio</h2>
+      <form id="spaceForm">
+        <label>Nombre <input name="name" required maxlength="150"></label>
+        <label>Ubicación <input name="location" required maxlength="150"></label>
+        <label>Capacidad <input name="maxCapacity" type="number" min="1" required></label>
+        <label>Estado <select name="conservationStatus"><option value="OPERATIONAL">Operativo</option><option value="MAINTENANCE">Mantenimiento</option><option value="CLOSED">Cerrado</option></select></label>
+        <label>Dependencia administrativa <input name="administrativeUnit" required maxlength="150"></label>
+        <button>Registrar espacio</button>
+      </form>
+    </section>
+    <section><h2>Registrar reserva</h2>
+      <form id="bookingForm">
+        <label>ID del espacio <input name="spaceId" type="number" min="1" required></label>
+        <label>Organización <input name="organizationName" required maxlength="150"></label>
+        <label>Aforo solicitado <input name="attendeeCount" type="number" min="1" required></label>
+        <label>Inicio <input name="startTime" type="datetime-local" required></label>
+        <label>Final <input name="endTime" type="datetime-local" required></label>
+        <button>Registrar reserva</button>
+      </form>
+    </section>
+    <section><h2>Consultar o aprobar reserva</h2>
+      <form id="lookupForm"><label>ID de reserva <input name="bookingId" type="number" min="1" required></label><button>Consultar estado</button><button type="button" id="approveButton">Aprobar</button></form>
+    </section>
+    <section><h2>Espacios existentes</h2><button id="loadSpaces">Actualizar lista</button><ul id="spaceList"></ul></section>
+    <output id="result" role="status" aria-live="polite"></output>
+  </main><script src="/js/app.js"></script>
+</body>
+</html>
